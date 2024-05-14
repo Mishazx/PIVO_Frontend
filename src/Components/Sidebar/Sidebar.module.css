@@ -1,0 +1,73 @@
+.panel {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    top: 0;
+    z-index: 10;
+    overflow-x: hidden;
+    transition: 0.3s;
+    border-right: 1px solid #000;
+}
+
+.panel.light {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.panel.dark {
+    background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+}
+
+.panel.open {
+    left: 0;
+}
+
+.panel.close {
+    left: -250px;
+}
+
+.UpMenuContainer {
+    display: grid;
+    padding: 5rem 2rem;
+    /*padding: 3rem 2rem;*/
+}
+
+/*.DownMenuContainer {*/
+/*    display: grid;*/
+/*    position: relative;*/
+/*    padding: 15% 5%;*/
+/*    grid-template-columns: 1fr 1fr;*/
+/*    grid-template-rows: 2fr 1fr;*/
+/*    justify-items: center;*/
+/*}*/
+
+.DownMenuContainer {
+    /*position: relative;*/
+    padding: 15% 5%;
+}
+
+.UserContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: -10% 0% 0%;
+}
+
+.ButtonContainer {
+    display: grid;
+    position: relative;
+    padding: 15% 5% ;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+}
+
+.text.light {
+
+}
+
+.text.dark {
+    color: white;
+}

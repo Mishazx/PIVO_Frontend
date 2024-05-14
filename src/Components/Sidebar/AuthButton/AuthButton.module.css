@@ -1,0 +1,21 @@
+.AuthButton {
+    color: #333333;
+    border: 1px solid #333333;
+    border-radius: 1rem;
+    text-decoration: none;
+}
+
+.AuthButton.dark {
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.AuthButton:hover {
+    background: #333333;
+    color: #ffffff;
+}
+
+.AuthButton.dark:hover {
+    color: #333333;
+    background: #ffffff;
+}

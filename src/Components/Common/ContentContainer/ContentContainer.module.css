@@ -1,0 +1,17 @@
+.Container {
+    /*height: 100vh;*/
+    box-sizing: border-box;
+    padding: 100px 50px 50px 50px;
+    width: calc(100% - 40px); /* ширина контейнера с учетом padding и margin */
+    max-width: 1200px; /* максимальная ширина контейнера */
+    margin: 0 auto; /* центрируем контейнер */
+}
+
+.Container.light {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+
+}
+
+.Container.dark {
+    background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
+}

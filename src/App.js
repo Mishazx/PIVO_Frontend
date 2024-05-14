@@ -1,25 +1,57 @@
-import logo from './logo.svg';
 import './App.css';
+import Sidebar from './Components/Sidebar/Sidebar'
+import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
+import MainPage from "./Components/Page/MainPage/MainPage";
+import JournalPage from "./Components/Page/JournalPage/JournalPage";
+import {useTheme} from "./Providers/ThemeContext";
+import EmployeePage from "./Components/Page/EmployeePage/EmployeePage";
+import {compose} from "redux";
+import {connect} from "react-redux";
+import {initializeApp} from "./Providers/Reducers/AppReducer";
+import {useEffect} from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const ContainerApp = (props) => {
+    const theme = useTheme();
+
+    useEffect(() => {
+        if (!props.initialized) {
+            props.store.dispatch(props.initializeApp);
+        }
+    }, [props]);
+
+    return (
+        <div className={`App ${theme}`}>
+
+            <BrowserRouter>
+                <Sidebar/>
+                <Routes>
+                    <Route path="/" element={<Navigate to="/home" />} />
+                    <Route path={'/home'} element={<MainPage />} />
+                    <Route path={'/production'} element={<MainPage />} />
+                    <Route path={'/journal'} element={<JournalPage />} />
+                    <Route path={'/employee'} element={<EmployeePage />} />
+
+                </Routes>
+
+
+            </BrowserRouter>
+        </div>
+    );
 }
 
-export default App;
+const mapStateToProps = (state) => ({
+    initialized: state.app.initialized
+    // error: state.app
+});
+
+const mapDispatchToProps = {
+    initializeApp
+};
+
+const AppContainer = compose(
+    connect(mapStateToProps, mapDispatchToProps)
+)(ContainerApp);
+
+export default AppContainer;
+
+// export default App;

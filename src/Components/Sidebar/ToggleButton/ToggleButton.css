@@ -1,0 +1,16 @@
+.ToggleButton {
+    position: fixed;
+    top: 2%;;
+    left: 2%;
+    background: none;
+    border: none;
+    font-size: 25px;
+    cursor: pointer;
+    z-index: 999;
+    color: #000;
+}
+
+.ToggleButton.dark {
+    color: #fff;
+}
+
