@@ -1,10 +1,10 @@
 .ToggleButton {
     position: fixed;
-    top: 2%;;
-    left: 2%;
+    top: 10px;
+    left: 10px;
     background: none;
     border: none;
-    font-size: 25px;
+    font-size: 30px;
     cursor: pointer;
     z-index: 999;
     color: #000;

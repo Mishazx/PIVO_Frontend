@@ -5,10 +5,11 @@ const TOGGLE_IS_FETCHING_PRODUCTION = 'TOGGLE_IS_FETCHING_PRODUCTION';
 
 let initialState = {
     data_storage_pie_diagram: [
-        {name: 'Group A', value: 1400},
-        {name: 'Group B', value: 1300},
-        {name: 'Group C', value: 1300},
-        {name: 'Group D', value: 1200},
+        {name: 'Солод', value: 2000},
+        {name: 'Вода', value: 1300},
+        {name: 'Дрожи', value: 1300},
+        {name: 'Хмель', value: 1200},
+        {name: 'Свободно', value: 100},
     ],
     isFetching: true,
     followingInProgress: []
@@ -40,6 +41,7 @@ export const toggleIsFetching = (isFetching) =>
 
 export const requestProduction = () => async (dispatch) => {
     dispatch(toggleIsFetching(true));
+
     dispatch(toggleIsFetching(false));
 
 }

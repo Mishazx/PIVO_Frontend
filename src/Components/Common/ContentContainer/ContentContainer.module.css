@@ -1,24 +1,17 @@
 .Container {
     box-sizing: border-box;
-    padding: 100px 50px 50px 50px;
-    width: calc(100% - 40px);
+    align-content: center;
+    justify-content: flex-start;
     margin: 0 auto;
-    /*height: 100vh; !* add this line *!*/
-    display: flex; /* add this line */
-    flex-direction: column; /* add this line */
-
-    /*box-sizing: border-box;*/
-    /*padding: 100px 50px 50px 50px;*/
-    /*!*position: fixed;*!*/
-    /*top: 0;*/
-    /*left: 0;*/
-    /*width: 100%;*/
-    /*height: 100vh;*/
-    /*margin: 0;*/
-    /*display: flex;*/
-    /*flex-direction: column;*/
+    display: flex;
+    /*flex-wrap: wrap;*/
+    flex-wrap: wrap;
+    transition: flex-wrap 1.5s;
 }
 
+.wrap:hover {
+    flex-wrap: nowrap;
+}
 /*.Container.light {*/
 /*    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);*/
 /*}*/

@@ -25,16 +25,10 @@ const JournalPage = (props) => {
 
     return (
         <>
-            {props.isFetching ? <Preloader/> : null}
-
-            {/*<ContentContainer>*/}
-
-            {/*</ContentContainer>*/}
             <ContentContainer>
-                <Container>
-                    <JournalLogContainer />
-            {/*<JournalLog data={props.events}/>*/}
-                </Container>
+
+                <JournalLogContainer/>
+
             </ContentContainer>
         </>
     );

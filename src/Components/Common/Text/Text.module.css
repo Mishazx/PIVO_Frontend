@@ -1,0 +1,11 @@
+.text {
+
+}
+
+.text.light {
+    color: black
+}
+
+.text.dark {
+    color: white;
+}

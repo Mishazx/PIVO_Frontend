@@ -1,14 +1,17 @@
 .table {
     border-collapse: collapse;
-    width: 100%;
+    padding: 20px;
+    /*padding-left: 100px;*/
+    /*width: 200%;*/
 }
 
 .th {
-    background-color: #c9cfe2;
+    background-color: #d5e1f4;
     border-bottom: 1px solid #ddd;
     padding: 8px;
     text-align: left;
 }
+
 .th.dark {
     color: #c9cfe2;
     background-color: #292929;
@@ -37,3 +40,38 @@
     background-color: #151515;
 }
 
+.pageNum {
+    padding: 12px;
+    color: #1a1a1a;
+    background-color: #c3cfe2;
+    border-radius: 0.5em;
+}
+
+.pageNum.dark {
+
+}
+
+.active {
+    /*background-color: #c3cfe2;*/
+    background-color: #87a3c2;
+}
+
+.passive {
+    /*color: blue;*/
+}
+
+.pagination {
+    display: flex;
+    gap: 10px;
+    font-size: 20px;
+    padding-top: 16px;
+}
+
+
+.animate {
+    transform: scale(1.1);
+    transition: transform 0.5s;
+}
+.animate.active {
+    transform: scale(1.2);
+}

@@ -11,17 +11,24 @@ import {
 import {useEffect} from "react";
 import JournalLog from "./JournalLog";
 import Preloader from "../../Common/Preloader/Preloader";
+import Container from "../../Common/Container/Container";
 
 const JournalLogContainer = (props) => {
     useEffect(() => {
-        if(props.events.length === 0)
+        if (props.events.length === 0)
             props.getEvents();
     }, []);
 
     return (
         <>
             {props.isFetching ? <Preloader/> : null}
-            <JournalLog data={props.events}/>
+            {!props.isFetching ?
+                <Container>
+                    <JournalLog data={props.events}/>
+                </Container>
+                :
+                null
+            }
         </>
     )
 }

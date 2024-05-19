@@ -1,12 +1,12 @@
 import {createSelector} from "reselect";
 
 
-export const getUsersSelector = (state) => {
+export const getEventsSelector = (state) => {
     return state.journal.events;
 }
 
 export const getEvents = createSelector(
-    getUsersSelector, (events) => {
+    getEventsSelector, (events) => {
         // return events.filter(e => true);
         return events.filter(e => true);
     });

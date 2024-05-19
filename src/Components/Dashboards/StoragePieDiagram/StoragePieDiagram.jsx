@@ -1,46 +1,64 @@
 import React, {PureComponent} from 'react';
-import {PieChart, Pie, Sector, Cell, ResponsiveContainer} from 'recharts';
+import {PieChart, Pie, Sector, Cell, ResponsiveContainer, Legend, Tooltip} from 'recharts';
+import {getStoragePieDiagram} from "../../../Providers/Reducers/ProductionSelector";
+import {compose} from "redux";
+import {connect} from "react-redux";
+import Container from "../../Common/Container/Container";
+import Text from "../../Common/Text/Text";
 
-const data = [
-    {name: 'Group A', value: 400},
-    {name: 'Group B', value: 300},
-    {name: 'Group C', value: 300},
-    {name: 'Group D', value: 200},
-];
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
+
+const COLORS = ['#FFC107', '#0088FE', '#8BC34A', '#FF69B4', '#9C9C9C'];
 
 class Diagram extends PureComponent {
-
     render() {
+        console.log(this.props.data)
         return (
-            <PieChart width={800} height={400} onMouseEnter={this.onPieEnter}>
+            <PieChart
+                width={250} height={250}
+                onMouseEnter={this.onPieEnter}>
                 <Pie
-                    data={data}
-                    cx={200}
-                    cy={200}
-                    innerRadius={60}
-                    outerRadius={80}
+                    data={this.props.data}
+                    innerRadius={50}
+                    outerRadius={70}
                     fill="#8884d8"
                     paddingAngle={5}
-                    dataKey="value"
+                    // dataKey="value"
+                    nameKey="name"
+                    valueKey="value"
                     label
                 >
-                    {data.map((entry, index) => (
+                    {this.props.data.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>
                     ))}
                 </Pie>
+                <Tooltip />
+                <Legend />
+
             </PieChart>
         );
     }
 }
 
 
-const StoragePieDiagram = () => {
+const StoragePieDiagram = (props) => {
     return (
-        <div>
-            <Diagram/>
-        </div>
+        <Container>
+            <Text>Склад №1</Text>
+            <Diagram data={props.data_storage_pie_diagram}/>
+        </Container>
     )
 }
 
-export default StoragePieDiagram;
+const mapStateToProps = (state) => {
+    return {
+        data_storage_pie_diagram: getStoragePieDiagram(state)
+    }
+}
+
+export default compose(
+    connect(mapStateToProps,
+        {}
+    )
+)
+(StoragePieDiagram)
+// export default StoragePieDiagram;
