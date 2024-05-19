@@ -1,9 +1,9 @@
 import styles from './JournalLog.module.css'
 import {useTheme} from "../../../Providers/ThemeContext";
 
-const JournalLog = ({events}) => {
+const JournalLog = ({data}) => {
     const theme = useTheme();
-    console.log(events);
+    console.log(data);
     return (
         <table className={styles.table}>
             <thead>
@@ -15,12 +15,12 @@ const JournalLog = ({events}) => {
             </tr>
             </thead>
             <tbody>
-            {events.map((event) => (
-                <tr key={event.id} className={styles.tr}>
-                    <td className={`${styles.td} ${styles[theme]}`}>{event.production_line__name}</td>
-                    <td className={`${styles.td} ${styles[theme]}`}>{event.event_type}</td>
-                    <td className={`${styles.td} ${styles[theme]}`}>{event.event_date}</td>
-                    <td className={`${styles.td} ${styles[theme]}`}>{event.description}</td>
+            {data.map((data) => (
+                <tr key={data.id} className={styles.tr}>
+                    <td className={`${styles.td} ${styles[theme]}`}>{data.production_line__name}</td>
+                    <td className={`${styles.td} ${styles[theme]}`}>{data.event_type}</td>
+                    <td className={`${styles.td} ${styles[theme]}`}>{data.event_date}</td>
+                    <td className={`${styles.td} ${styles[theme]}`}>{data.description}</td>
                 </tr>
             ))}
             </tbody>

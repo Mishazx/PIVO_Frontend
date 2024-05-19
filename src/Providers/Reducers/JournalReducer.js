@@ -3,7 +3,7 @@ import {eventsAPI} from "../../Components/API/API";
 const SET_EVENTS = 'SET-EVENTS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
 const SET_TOTAL_EVENTS_COUNT = 'SET-TOTAL-EVENTS-COUNT';
-const TOGGLE_IS_FETCHING = 'TOGGLE-IS-FETCHING';
+const TOGGLE_IS_FETCHING_EVENTS = 'TOGGLE-IS-FETCHING-EVENTS';
 const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE-IS-FOLLOWING-PROGRESS';
 
 let initialState = {
@@ -33,7 +33,7 @@ const journalReducer = (state = initialState, action) => {
                 totalUsersCount: action.count
             }
         }
-        case TOGGLE_IS_FETCHING: {
+        case TOGGLE_IS_FETCHING_EVENTS: {
             return {
                 ...state,
                 isFetching: action.isFetching
@@ -47,7 +47,6 @@ const journalReducer = (state = initialState, action) => {
                     : state.followingInProgress.filter(id => id !== action.userId)
             }
         }
-
         default:
             return state;
     }
@@ -55,14 +54,15 @@ const journalReducer = (state = initialState, action) => {
 
 export const setEvents = (events) =>
     ({type: SET_EVENTS, events})
-export const setCurrentPage = (currentPage) =>
-    ({type: SET_CURRENT_PAGE, currentPage})
-export const setEventsTotalCount = (totalEventsCount) =>
-    ({type: SET_TOTAL_EVENTS_COUNT, count: totalEventsCount})
+// export const setCurrentPage = (currentPage) =>
+//     ({type: SET_CURRENT_PAGE, currentPage})
 export const toggleIsFetching = (isFetching) =>
-    ({type: TOGGLE_IS_FETCHING, isFetching})
-export const toggleFollowingProgress = (isFetching, eventId) =>
-    ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, eventId})
+    ({type: TOGGLE_IS_FETCHING_EVENTS, isFetching})
+
+// export const toggleFollowingProgress = (isFetching, eventId) =>
+//     ({type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, eventId})
+// export const setEventsTotalCount = (totalEventsCount) =>
+//     ({type: SET_TOTAL_EVENTS_COUNT, count: totalEventsCount})
 
 export const requestEvents = () => async (dispatch) => {
     dispatch(toggleIsFetching(true));

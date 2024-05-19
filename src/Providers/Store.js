@@ -4,11 +4,13 @@ import {thunk} from "redux-thunk";
 // import playerReducer from "./Reducers/playerReducer";
 import appReducer from "./Reducers/AppReducer";
 import journalReducer from "./Reducers/JournalReducer"
+import productionReducer from "./Reducers/ProductionReducer";
 
 
 let reducers = combineReducers({
     app: appReducer,
-    journal: journalReducer
+    journal: journalReducer,
+    production: productionReducer,
 });
 
 export let store = createStore(reducers, applyMiddleware(thunk));

@@ -1,17 +1,28 @@
 .Container {
-    /*height: 100vh;*/
     box-sizing: border-box;
     padding: 100px 50px 50px 50px;
-    width: calc(100% - 40px); /* ширина контейнера с учетом padding и margin */
-    max-width: 1200px; /* максимальная ширина контейнера */
-    margin: 0 auto; /* центрируем контейнер */
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    /*height: 100vh; !* add this line *!*/
+    display: flex; /* add this line */
+    flex-direction: column; /* add this line */
+
+    /*box-sizing: border-box;*/
+    /*padding: 100px 50px 50px 50px;*/
+    /*!*position: fixed;*!*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*width: 100%;*/
+    /*height: 100vh;*/
+    /*margin: 0;*/
+    /*display: flex;*/
+    /*flex-direction: column;*/
 }
 
-.Container.light {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+/*.Container.light {*/
+/*    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);*/
+/*}*/
 
-}
-
-.Container.dark {
-    background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);
-}
+/*.Container.dark {*/
+/*    background: linear-gradient(135deg, #1a1a1a 0%, #333333 100%);*/
+/*}*/

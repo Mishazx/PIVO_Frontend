@@ -21,8 +21,8 @@ export const ThemeProvider = ({ children }) => {
         const html = document.documentElement;
         const body = document.body;
         if (newTheme === 'light'){
-            html.style.background = '#FFF';
-            body.style.background = '#FFF';
+            html.style.background = '#EEE';
+            body.style.background = '#EEE';
         } else {
             html.style.background = '#333';
             body.style.background = '#333';
@@ -40,8 +40,8 @@ export const ThemeProvider = ({ children }) => {
             const html = document.documentElement;
             const body = document.body;
             if (storedTheme === 'light'){
-                html.style.background = '#FFF';
-                body.style.background = '#FFF';
+                html.style.background = '#EEE';
+                body.style.background = '#EEE';
             } else {
                 html.style.background = '#333';
                 body.style.background = '#333';

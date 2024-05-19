@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const instance = axios.create({
-    baseURL: 'https://beer.mishazx.ru/',
+    baseURL: 'https://api.beer.mishazx.ru/',
     withCredentials: true,
 });
 

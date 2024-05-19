@@ -1,11 +1,22 @@
 .Container {
-    display: flex;
-    background-color: white;
-    padding: 2rem 2rem;
-    /*flex-direction: column;*/
-    align-items: center;
-    justify-content: center;
+    /*display: flex;*/
+    /*background-color: white;*/
+
+    /*!*flex-direction: column;*!*/
+    /*align-items: center;*/
+    /*justify-content: center;*/
     border-radius: 1rem;
+    overflow: auto;
+    padding: 2rem 2rem;
+    /*padding: 100px 50px 50px 50px;*/
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.Container.light {
+    background: #fff;
 }
 
 

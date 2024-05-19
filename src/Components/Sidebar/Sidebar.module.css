@@ -64,10 +64,15 @@
     justify-items: center;
 }
 
+.text {
+    font-size: 20px;
+}
+
 .text.light {
 
 }
 
 .text.dark {
+
     color: white;
 }

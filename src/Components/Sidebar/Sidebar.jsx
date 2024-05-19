@@ -19,16 +19,16 @@ const Sidebar = () => {
             <ToggleButton onClick={toggleSidebar} isOpen={isOpen}/>
             <div className={`${styles.panel} ${styles[theme]} ${isOpen ? styles.open : styles.close}`}>
                 <div className={`${styles.UpMenuContainer}`}>
-                    <ButtonLink to="/production">Production</ButtonLink>
-                    <ButtonLink to="/journal">Journal</ButtonLink>
-                    <ButtonLink to="/employee">Employee</ButtonLink>
+                    <ButtonLink to="/production">Производство</ButtonLink>
+                    <ButtonLink to="/journal">Журналы</ButtonLink>
+                    <ButtonLink to="/employee">Сотрудники</ButtonLink>
                 </div>
                 <div className={`${styles.DownMenuContainer}`}>
                     {/*<div className={`${styles.UserContainer}`}>*/}
 
                     {/*</div>*/}
                     <div className={`${styles.ButtonContainer}`}>
-                        <div className={`${styles.text} ${styles[theme]}`}>Switch theme</div>
+                        <div className={`${styles.text} ${styles[theme]}`}>Тема</div>
                         {/*<AuthButton theme={props.theme} isLoggedIn={props.isLoggedIn}/>*/}
 
                         <SwitchThemeButton isChecked={isOpen}/>

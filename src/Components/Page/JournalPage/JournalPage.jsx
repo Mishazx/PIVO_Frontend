@@ -12,25 +12,29 @@ import {
 import Preloader from "../../Common/Preloader/Preloader";
 import {useEffect,} from "react";
 import JournalLog from "../../Dashboards/JournalLog/JournalLog";
+import JournalLogContainer from "../../Dashboards/JournalLog/JournalLogContainer";
 
 const JournalPage = (props) => {
 
-    useEffect(() => {
-        // props.getEvents();
-        props.getEvents();
-    }, []);
-
-    console.log(props);
+    // useEffect(() => {
+    //     // props.getEvents();
+    //     props.getEvents();
+    // }, []);
+    //
+    // console.log(props);
 
     return (
         <>
             {props.isFetching ? <Preloader/> : null}
 
+            {/*<ContentContainer>*/}
+
+            {/*</ContentContainer>*/}
             <ContentContainer>
                 <Container>
-                    <JournalLog events={props.events}/>
+                    <JournalLogContainer />
+            {/*<JournalLog data={props.events}/>*/}
                 </Container>
-
             </ContentContainer>
         </>
     );
@@ -39,9 +43,6 @@ const JournalPage = (props) => {
 let mapStateToProps = (state) => {
     return {
         events: getEvents(state),
-        pageSize: getPageSize(state),
-        totalUsersCount: getTotalEventsCount(state),
-        currentPage: getCurrentPage(state),
         isFetching: getIsFetching(state),
     }
 }
@@ -49,9 +50,7 @@ let mapStateToProps = (state) => {
 export default compose(
     connect(mapStateToProps,
         {
-            setCurrentPage,
             getEvents: requestEvents
-
         })
 )
 (JournalPage)
