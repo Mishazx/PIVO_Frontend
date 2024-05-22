@@ -1,0 +1,18 @@
+.HeaderCard {
+    font-size: 18px;
+    border-radius: 0.5em;
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center; /* Центрируем по вертикали */
+    justify-content: space-between; /* Размещаем статус в правом краю */
+}
+
+.HeaderCard.light {
+    background-color: #f5f7fa;
+}
+
+.HeaderCard.dark {
+    background-color: #2f2f2f;
+}

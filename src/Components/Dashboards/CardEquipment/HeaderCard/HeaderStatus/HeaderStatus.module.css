@@ -1,0 +1,14 @@
+.status {
+    padding: 8px;
+    border-radius: 8px;
+    background-color: gray;
+}
+.status.red {
+    color: red; /* adjust to a specific error color */
+}
+.status.yellow {
+    color: yellow;
+}
+.status.green {
+    color: green;
+}

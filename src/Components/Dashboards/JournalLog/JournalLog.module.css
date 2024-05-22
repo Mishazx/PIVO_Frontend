@@ -1,8 +1,9 @@
 .table {
     border-collapse: collapse;
     padding: 20px;
-    /*padding-left: 100px;*/
-    /*width: 200%;*/
+    width: 96vw; /* Используйте vw вместо % */
+    /*height: 100vh; !* Используйте vh вместо % *!*/
+    box-sizing: border-box;
 }
 
 .th {
@@ -68,10 +69,10 @@
 }
 
 
-.animate {
-    transform: scale(1.1);
-    transition: transform 0.5s;
-}
-.animate.active {
-    transform: scale(1.2);
-}
+/*.animate {*/
+    /*transform: scale(1.1);*/
+    /*transition: transform 0.5s;*/
+/*}*/
+/*.animate.active {*/
+/*    transform: scale(1.2);*/
+/*}*/

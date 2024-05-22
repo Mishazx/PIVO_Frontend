@@ -7,7 +7,8 @@ const Preloader = () => {
     return (
         <div className={styles.container}>
             {/*<img src={preloader} alt={'preloader'}/>*/}
-            ЗАГРУЗКА
+            <div className={styles.spinner}></div>
+            {/*ЗАГРУЗКА*/}
         </div>
     );
 }

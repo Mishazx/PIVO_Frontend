@@ -3,8 +3,6 @@
     padding: 20px;
     border-radius: 1em;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    /*width: min-content;*/
-    margin: 20px 30px;
     display: flex;
     flex-direction: column;
 }

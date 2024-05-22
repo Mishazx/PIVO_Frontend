@@ -1,4 +1,4 @@
-import {eventsAPI} from "../../Components/API/API";
+import {API, eventsAPI} from "../../API/API";
 
 const SET_EVENTS = 'SET-EVENTS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
@@ -66,7 +66,7 @@ export const toggleIsFetching = (isFetching) =>
 
 export const requestEvents = () => async (dispatch) => {
     dispatch(toggleIsFetching(true));
-    let data = await eventsAPI.getEvents();
+    let data = await API.getEvents();
     dispatch(toggleIsFetching(false));
     // dispatch(setCurrentPage(page));
     dispatch(setEvents(data));

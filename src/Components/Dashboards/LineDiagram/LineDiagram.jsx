@@ -2,6 +2,9 @@ import React, { PureComponent } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import Container from "../../Common/Container/Container";
 import Text from "../../Common/Text/Text";
+import {getPerformanceData} from "../../../Providers/Reducers/ProductionSelector";
+import {compose} from "redux";
+import {connect} from "react-redux";
 
 const data = [
     {
@@ -54,30 +57,47 @@ class Diagram extends PureComponent {
     static demoUrl = 'https://codesandbox.io/p/sandbox/line-chart-width-xaxis-padding-8v7952';
 
     render() {
+        // const groupedData = {};
+        // data.forEach(item => {
+        //     if (!groupedData[item.production_line]) {
+        //         groupedData[item.production_line] = [];
+        //     }
+        //     groupedData[item.production_line].push({
+        //         name: item.timestamp,
+        //         pv: parseFloat(item.performance)
+        //     });
+        // });
+        console.log('LD', this.props.data)
+
         return (
             <ResponsiveContainer
-                width={500}
-                // height="100%"
+                width={450}
+                height={250}
             >
                 <LineChart
-                    width={300}
-                    height={300}
-                    data={data}
+                    // width={300}
+                    // height={300}
+                    data={this.props.data}
                     margin={{
-                        top: 5,
+                        // top: 5,
                         right: 30,
-                        left: 20,
-                        bottom: 5,
+                        // left: 20,
+                        // bottom: 5,
                     }}
                 >
-                    <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
+                    {/*<CartesianGrid strokeDasharray="3 3" />*/}
+                    {/*<XAxis dataKey="timestamp" />*/}
+                    <XAxis
+                        dataKey="timestamp"
+                        tickFormatter={(tick) => new Date(tick).toLocaleTimeString().slice(0, 5)}
+                        // tickFormatter={(tick) => tick.format('YYYY-MM-DD HH:mm')}
+                    />
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
-                    <Line type="monotone" dataKey="hv" stroke="#911c23" />
-                    <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
+                    <Line type="monotone" name={'Лдп лагера'} dataKey="pv" stroke="#8884d8" />
+                    <Line type="monotone" name={'Лдп эля'} dataKey="hv" stroke="#911c23" />
+                    <Line type="monotone" name={'Лдп специальных пив'} dataKey="uv" stroke="#82ca9d" />
                 </LineChart>
             </ResponsiveContainer>
         );
@@ -85,14 +105,31 @@ class Diagram extends PureComponent {
 }
 
 
-const LineDiagram = () => {
+const LineDiagram = (props) => {
+    console.log(props);
     return (
         <Container>
             <Text>Эффективность линий производств</Text>
-            <Diagram />
+            <Diagram data={props.data}/>
+            <Text>* Лдп - Линия для производства</Text>
         </Container>
 
     )
 }
 
-export default LineDiagram;
+const mapStateToProps = (state) => {
+    return {
+        data: getPerformanceData(state)
+    }
+}
+
+export default compose(
+    connect(mapStateToProps,
+        {
+
+        })
+)
+(LineDiagram)
+
+
+// export default LineDiagram;

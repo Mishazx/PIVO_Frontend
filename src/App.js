@@ -9,6 +9,7 @@ import {compose} from "redux";
 import {connect} from "react-redux";
 import {initializeApp} from "./Providers/Reducers/AppReducer";
 import {useEffect} from "react";
+import TopBar from "./Components/TopBar/TopBar";
 
 const ContainerApp = (props) => {
     const theme = useTheme();
@@ -23,6 +24,7 @@ const ContainerApp = (props) => {
         <div className={`App ${theme}`}>
 
             <BrowserRouter>
+                <TopBar />
                 <Sidebar/>
                 <Routes>
                     <Route path="/" element={<Navigate to="/home" />} />

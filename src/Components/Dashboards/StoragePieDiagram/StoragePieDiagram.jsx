@@ -1,10 +1,11 @@
 import React, {PureComponent} from 'react';
 import {PieChart, Pie, Sector, Cell, ResponsiveContainer, Legend, Tooltip} from 'recharts';
-import {getStoragePieDiagram} from "../../../Providers/Reducers/ProductionSelector";
+// import {getStoragePieDiagram} from "../../../Providers/Reducers/ProductionSelector";
 import {compose} from "redux";
 import {connect} from "react-redux";
 import Container from "../../Common/Container/Container";
 import Text from "../../Common/Text/Text";
+import {getStorageData} from "../../../Providers/Reducers/ProductionSelector";
 
 
 const COLORS = ['#FFC107', '#0088FE', '#8BC34A', '#FF69B4', '#9C9C9C'];
@@ -24,10 +25,10 @@ class Diagram extends PureComponent {
                     paddingAngle={5}
                     // dataKey="value"
                     nameKey="name"
-                    valueKey="value"
+                    valueKey="count"
                     label
                 >
-                    {this.props.data.map((entry, index) => (
+                    {this.props.data && this.props.data.map((entry, index) => (
                         <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]}/>
                     ))}
                 </Pie>
@@ -44,14 +45,14 @@ const StoragePieDiagram = (props) => {
     return (
         <Container>
             <Text>Склад №1</Text>
-            <Diagram data={props.data_storage_pie_diagram}/>
+            <Diagram data={props.data}/>
         </Container>
     )
 }
 
 const mapStateToProps = (state) => {
     return {
-        data_storage_pie_diagram: getStoragePieDiagram(state)
+        data: getStorageData(state)
     }
 }
 
@@ -61,4 +62,3 @@ export default compose(
     )
 )
 (StoragePieDiagram)
-// export default StoragePieDiagram;

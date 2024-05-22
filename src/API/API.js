@@ -6,14 +6,22 @@ const instance = axios.create({
     withCredentials: true,
 });
 
-export const eventsAPI = {
+export const API = {
     getEvents() {
         return instance.get(`get_brewing_events/`)
             .then(response => {
                 return response.data;
             });
     },
+
+    getProduction() {
+        return instance.get(`get_production/`)
+            .then(response => {
+                return response.data;
+            })
+    }
 }
+
 
 
 export const authAPI = {
