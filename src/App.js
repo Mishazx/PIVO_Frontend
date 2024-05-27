@@ -25,7 +25,7 @@ const ContainerApp = (props) => {
 
             <BrowserRouter>
                 <TopBar />
-                <Sidebar/>
+                {/*<Sidebar/>*/}
                 <Routes>
                     <Route path="/" element={<Navigate to="/home" />} />
                     <Route path={'/home'} element={<MainPage />} />

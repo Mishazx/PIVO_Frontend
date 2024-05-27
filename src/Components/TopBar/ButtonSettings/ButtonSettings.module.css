@@ -1,0 +1,41 @@
+.container {
+    position: relative;
+    display: inline-block;
+}
+
+.button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu {
+    position: absolute;
+    /*top: 100%; !* позиционирование чуть ниже кнопки *!*/
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    width: 80px;
+}
+
+.menuList {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menuItem {
+    padding: 6px;
+}
+
+.menuItem a {
+    text-decoration: none;
+    color: black;
+    display: block;
+}
+
+.menuItem a:hover {
+    background-color: #f0f0f0;
+}

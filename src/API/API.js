@@ -11,14 +11,20 @@ export const API = {
         return instance.get(`get_brewing_events/`)
             .then(response => {
                 return response.data;
+            })
+            .catch(error => {
+                console.error(error);
             });
     },
 
     getProduction() {
-        return instance.get(`get_production/`)
+        return instance.get('get_production/')
             .then(response => {
                 return response.data;
             })
+            .catch(error => {
+                console.error(error);
+            });
     }
 }
 

@@ -2,8 +2,6 @@ import React from 'react';
 import styles from './TopBar.module.css';
 import {useTheme} from "../../Providers/ThemeContext";
 import ButtonBar from "./ButtonBar/ButtonBar";
-import ButtonLink from "../Common/ButtonLink/ButtonLink";
-import ProfileIcon from "../../Icons/ProfileIcon/ProfileIcon";
 import ButtonSettings from "./ButtonSettings/ButtonSettings";
 import ButtonProfile from "./ButtonProfile/ButtonProfile";
 

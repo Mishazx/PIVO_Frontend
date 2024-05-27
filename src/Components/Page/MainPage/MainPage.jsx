@@ -1,4 +1,4 @@
-import React, {PureComponent, useEffect} from "react";
+import React, { PureComponent, useEffect } from "react";
 import {
     CartesianGrid,
     Legend,
@@ -15,11 +15,17 @@ import ContentContainer from "../../Common/ContentContainer/ContentContainer";
 import StoragePieDiagram from "../../Dashboards/StoragePieDiagram/StoragePieDiagram";
 import Container from "../../Common/Container/Container";
 import LineDiagram from "../../Dashboards/LineDiagram/LineDiagram";
-import {compose} from "redux";
-import {connect} from "react-redux";
-import {requestProduction} from "../../../Providers/Reducers/ProductionReducer";
-import {getAllData, getIsFetching, getStorageData} from "../../../Providers/Reducers/ProductionSelector";
-import CardEquipment from "../../Dashboards/CardEquipment/CardEquipment";
+import { compose } from "redux";
+import { connect } from "react-redux";
+import { requestProduction } from "../../../Providers/Reducers/ProductionReducer";
+import {
+    getAllData,
+    getCharacteristicData,
+    getIsFetching,
+    getStorageData
+} from "../../../Providers/Reducers/ProductionSelector";
+import CardProductionLine from "../../Dashboards/CardEquipment/CardProductionLine";
+import Preloader from "../../Common/Preloader/Preloader";
 
 const data = [
     {
@@ -101,11 +107,32 @@ const MainPage = (props) => {
 
     console.log('props', props);
 
-    return(
+    return (
         <ContentContainer>
-            <StoragePieDiagram />
-            <LineDiagram />
-            <CardEquipment />
+            {props.isFetching ? <Preloader /> : null}
+            {!props.isFetching ?
+                <>
+                    <StoragePieDiagram />
+                    <LineDiagram />
+
+                    {
+                        Object.keys(props.characteristic_data).map((key, index) => (
+                            <CardProductionLine
+                                // key={index}
+                                {...props.characteristic_data[key] }
+                            />
+                        ))
+                    }
+
+                    {/*<CardProductionLine />*/}
+                    {/*<CardProductionLine />*/}
+                    {/*<CardProductionLine />*/}
+                    {/*<CardProductionLine />*/}
+                    {/*<CardProductionLine />*/}
+                    {/*<CardProductionLine />*/}
+                </>
+                : null}
+
         </ContentContainer>
     )
 }
@@ -113,7 +140,7 @@ const MainPage = (props) => {
 const mapStateToProps = (state) => {
     return {
         all_data: getAllData(state),
-        storage_data: getStorageData(state),
+        characteristic_data: getCharacteristicData(state),
         isFetching: getIsFetching(state)
     }
 }
@@ -124,6 +151,6 @@ export default compose(
             getAllData: requestProduction
         })
 )
-(MainPage)
+    (MainPage)
 
 // export default MainPage;

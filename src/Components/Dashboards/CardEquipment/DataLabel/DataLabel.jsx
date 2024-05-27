@@ -8,6 +8,7 @@ const DataLabel = ({ label, value }) => {
         <div className={`${styles.data_label} ${styles[theme]}`}>
             <div className={styles.label}>{label}:</div>
             <div className={styles.value}>{value}</div>
+            
         </div>
     );
 };

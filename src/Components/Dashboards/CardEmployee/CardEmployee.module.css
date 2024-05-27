@@ -1,0 +1,53 @@
+.employeeCard {
+    display: flex;
+    /*flex-direction: column;*/
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.employeeCard__imageContainer {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.employeeCard__image {
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.employeeCard__info {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.employeeCard__name {
+    font-size: 1.2em;
+    margin: 0;
+}
+.employeeCard__name.dark {
+    color: white;
+}
+
+.employeeCard__position {
+    color: #777;
+    margin: 4px 0;
+}
+
+.employeeCard__accessLevel {
+    font-weight: bold;
+    /*color: green;*/
+}
+
+.employeeCard__accessLevel.dark {
+    color: white;
+}

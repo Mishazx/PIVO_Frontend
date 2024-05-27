@@ -1,8 +1,8 @@
 .table {
     border-collapse: collapse;
     padding: 20px;
-    width: 96vw; /* Используйте vw вместо % */
-    /*height: 100vh; !* Используйте vh вместо % *!*/
+    width: 100%;
+    /*height: 100vh;*/
     box-sizing: border-box;
 }
 

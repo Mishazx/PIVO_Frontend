@@ -6,52 +6,6 @@ import {getPerformanceData} from "../../../Providers/Reducers/ProductionSelector
 import {compose} from "redux";
 import {connect} from "react-redux";
 
-const data = [
-    {
-        name: 'Page A',
-        uv: 4000,
-        hv: 3200,
-        pv: 2400,
-        amt: 2400,
-    },
-    {
-        name: 'Page B',
-        uv: 3000,
-        hv: 1800,
-        pv: 1398,
-        amt: 2210,
-    },
-    {
-        name: 'Page C',
-        uv: 2000,
-        pv: 9800,
-        amt: 2290,
-    },
-    {
-        name: 'Page D',
-        uv: 2780,
-        pv: 3908,
-        amt: 2000,
-    },
-    {
-        name: 'Page E',
-        uv: 1890,
-        pv: 4800,
-        amt: 2181,
-    },
-    {
-        name: 'Page F',
-        uv: 2390,
-        pv: 3800,
-        amt: 2500,
-    },
-    {
-        name: 'Page G',
-        uv: 3490,
-        pv: 4300,
-        amt: 2100,
-    },
-];
 
 class Diagram extends PureComponent {
     static demoUrl = 'https://codesandbox.io/p/sandbox/line-chart-width-xaxis-padding-8v7952';
@@ -70,13 +24,13 @@ class Diagram extends PureComponent {
         console.log('LD', this.props.data)
 
         return (
-            <ResponsiveContainer
-                width={450}
-                height={250}
-            >
+            // <ResponsiveContainer
+            //     width={450}
+            //     height={250}
+            // >
                 <LineChart
-                    // width={300}
-                    // height={300}
+                    width={450}
+                    height={250}
                     data={this.props.data}
                     margin={{
                         // top: 5,
@@ -90,7 +44,6 @@ class Diagram extends PureComponent {
                     <XAxis
                         dataKey="timestamp"
                         tickFormatter={(tick) => new Date(tick).toLocaleTimeString().slice(0, 5)}
-                        // tickFormatter={(tick) => tick.format('YYYY-MM-DD HH:mm')}
                     />
                     <YAxis />
                     <Tooltip />
@@ -99,7 +52,7 @@ class Diagram extends PureComponent {
                     <Line type="monotone" name={'Лдп эля'} dataKey="hv" stroke="#911c23" />
                     <Line type="monotone" name={'Лдп специальных пив'} dataKey="uv" stroke="#82ca9d" />
                 </LineChart>
-            </ResponsiveContainer>
+            //</ResponsiveContainer>
         );
     }
 }
