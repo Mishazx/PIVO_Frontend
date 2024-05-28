@@ -4,9 +4,14 @@ import {useTheme} from "../../Providers/ThemeContext";
 import ButtonBar from "./ButtonBar/ButtonBar";
 import ButtonSettings from "./ButtonSettings/ButtonSettings";
 import ButtonProfile from "./ButtonProfile/ButtonProfile";
+// import SwitchThemeButton from "./SwitchThemeButton/SwitchThemeButton";
+import SwitchThemeButton from '../Sidebar/SwitchThemeButton/SwitchThemeButton';
 
 const TopBar = () => {
-    const theme = useTheme();
+    const [theme, toggleTheme] = useTheme();
+
+    // const []
+
     return (
         <div className={`${styles.topBar} ${styles[theme]}`}>
             <div className={`${styles.container}`}>
@@ -17,6 +22,10 @@ const TopBar = () => {
             <div className={`${styles.user_container}`}>
                 <ButtonProfile />
                 <ButtonSettings />
+                {/* <SwitchThemeButton /> */}
+
+                <SwitchThemeButton/>
+                {/* <Switch */}
             </div>
 
         </div>

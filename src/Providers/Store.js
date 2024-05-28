@@ -5,12 +5,14 @@ import {thunk} from "redux-thunk";
 import appReducer from "./Reducers/AppReducer";
 import journalReducer from "./Reducers/JournalReducer"
 import productionReducer from "./Reducers/ProductionReducer";
+import employeeReducer from "./Reducers/EmployeeReducer";
 
 
 let reducers = combineReducers({
     app: appReducer,
     journal: journalReducer,
     production: productionReducer,
+    employee: employeeReducer
 });
 
 export let store = createStore(reducers, applyMiddleware(thunk));

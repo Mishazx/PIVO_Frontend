@@ -25,6 +25,16 @@ export const API = {
             .catch(error => {
                 console.error(error);
             });
+    },
+
+    getEmployees() {
+        return instance.get('get_employees/')
+            .then(response => {
+                return response.data;
+            })
+            .catch(error => {
+                console.error(error);
+            })
     }
 }
 

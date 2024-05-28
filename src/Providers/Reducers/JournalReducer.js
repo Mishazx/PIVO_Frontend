@@ -1,4 +1,4 @@
-import {API, eventsAPI} from "../../API/API";
+import {API} from "../../API/API";
 
 const SET_EVENTS = 'SET-EVENTS';
 const SET_CURRENT_PAGE = 'SET-CURRENT-PAGE';
@@ -52,6 +52,8 @@ const journalReducer = (state = initialState, action) => {
     }
 }
 
+export default journalReducer;
+
 export const setEvents = (events) =>
     ({type: SET_EVENTS, events})
 // export const setCurrentPage = (currentPage) =>
@@ -73,4 +75,3 @@ export const requestEvents = () => async (dispatch) => {
     // dispatch(setEventsTotalCount(data.totalCount));
 };
 
-export default journalReducer;
