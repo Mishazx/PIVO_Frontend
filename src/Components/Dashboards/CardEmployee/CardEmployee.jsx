@@ -8,10 +8,7 @@ const EmployeeCard = ({ image, fullName, position, accessLevel }) => {
     return (
 
         <Container>
-            <img src={image} alt={`${fullName}'s photo`} className={styles.employeeCard__image} />
-            {/* {image ? (
-                <img src={image} alt={`${fullName}'s photo`} className={styles.employeeCard__image} />
-            ) : `${fullName}'s photo`} */}
+            <img src={image} alt={`${fullName}'s`} className={styles.employeeCard__image} />
             <div className={styles.employeeCard__info}>
                 <h2 className={`${styles.employeeCard__name} ${styles[theme]}`}>{fullName}</h2>
                 <p className={styles.employeeCard__position}>{position}</p>

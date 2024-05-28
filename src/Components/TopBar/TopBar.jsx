@@ -8,9 +8,8 @@ import ButtonProfile from "./ButtonProfile/ButtonProfile";
 import SwitchThemeButton from '../Sidebar/SwitchThemeButton/SwitchThemeButton';
 
 const TopBar = () => {
-    const [theme, toggleTheme] = useTheme();
+    const theme = useTheme();
 
-    // const []
 
     return (
         <div className={`${styles.topBar} ${styles[theme]}`}>
@@ -22,8 +21,6 @@ const TopBar = () => {
             <div className={`${styles.user_container}`}>
                 <ButtonProfile />
                 <ButtonSettings />
-                {/* <SwitchThemeButton /> */}
-
                 <SwitchThemeButton/>
                 {/* <Switch */}
             </div>
