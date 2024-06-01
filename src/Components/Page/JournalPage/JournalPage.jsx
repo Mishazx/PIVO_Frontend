@@ -12,7 +12,7 @@ import {
 import Preloader from "../../Common/Preloader/Preloader";
 import {useEffect,} from "react";
 import JournalLog from "../../Dashboards/JournalLog/JournalLog";
-import JournalLogContainer from "../../Dashboards/JournalLog/JournalLogContainer";
+import Journals from "../../Dashboards/JournalLog/Journals";
 
 const JournalPage = (props) => {
 
@@ -26,8 +26,7 @@ const JournalPage = (props) => {
     return (
         <>
             <ContentContainer>
-
-                <JournalLogContainer/>
+                <Journals/>
 
             </ContentContainer>
         </>

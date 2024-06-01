@@ -35,18 +35,31 @@ export const API = {
             .catch(error => {
                 console.error(error);
             })
-    }
-}
+    },
 
+    // getPhotoEmployee(photoPath) {
+    //     const url = `photo/${photoPath}`;
+    //     console.log(url)
+    //     return instance.get(url)
+    //         .then(response => {
+    //             return response;
+    //         })
+    //         .catch(error => {
+    //             console.error(error);
+    //         })
+    // }
+
+
+}
 
 
 export const authAPI = {
     me() {
-        return instance.get(`auth/me` );
+        return instance.get(`auth/me`);
     },
     login(email, password, rememberMe = false) {
         return instance.post(`auth/login`,
-            { email, password, rememberMe });
+            {email, password, rememberMe});
     },
     logout() {
         return instance.delete(`auth/login`);

@@ -15,7 +15,7 @@ const employeeReducer = (state = initialState, action) => {
                 ...state,
                 employees: action.employees
             }
-        case TOGGLE_IS_FETCHING_EMPLOYEES: 
+        case TOGGLE_IS_FETCHING_EMPLOYEES:
             return {
                 ...state,
                 isFetching: action.isFetching
@@ -29,16 +29,60 @@ export default employeeReducer;
 
 export const setEmployees = (employees) =>
     ({type: SET_EMPLOYEES, employees})
-// export const setCurrentPage = (currentPage) =>
-//     ({type: SET_CURRENT_PAGE, currentPage})
 export const toggleIsFetching = (isFetching) =>
     ({type: TOGGLE_IS_FETCHING_EMPLOYEES, isFetching})
 
 export const requestEmployees = () => async (dispatch) => {
     dispatch(toggleIsFetching(true));
     let data = await API.getEmployees();
+    const photoPaths = data.map(employee => employee.photo);
+
+    // let photoDataArray = await Promise.all(
+    //     photoPaths.map((path) => API.getPhotoEmployee(path))
+    // );
+
+
+
+    // const newData = {
+    //     ...data,
+    //
+    //     photo: (photoDataArray || []).map((photo, index) => ({
+    //         ...photo,
+    //         id: data.photo[index].id + 1,
+    //     })),
+    //
+    //     // photo: photoDataArray.map((photo) => ({
+    //     //     photo: photo.data,
+    //     // })),
+    // };
+
+
+    // const newData = data.map((item, index) => {
+    //     const matchingPhoto = photoDataArray[index];
+    //     return { ...item, photo: matchingPhoto };
+    // });
+
+    // const newData = data.map((item, index) => ({ ...item, photo:
+    //
+    //
+    //         photoDataArray.map((photo) => ({
+    //                     // photo: photo.data,
+    //                     ...photo,
+    //         })),
+    // }));
+
+
+    // data.forEach((item) => {
+    //     item.photo = photoDataArray.map((photo) => ({ photo: photo.data })).flat();
+    // });
+
+
+        // { ...data, photo: photoDataArray.map((photo) => photo) };
+
+    // console.log(newData)
+
+
     dispatch(toggleIsFetching(false));
-    console.log(data);
     dispatch(setEmployees(data));
 };
 

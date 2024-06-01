@@ -5,10 +5,10 @@ import Container from "../../Common/Container/Container";
 
 const EmployeeCard = ({ image, fullName, position, accessLevel }) => {
     const theme = useTheme();
+    const url = 'https://api.beer.mishazx.ru/photo/'
     return (
-
         <Container>
-            <img src={image} alt={`${fullName}'s`} className={styles.employeeCard__image} />
+            <img src={`${url}${image}`} alt={`${fullName}'s`} className={styles.employeeCard__image} />
             <div className={styles.employeeCard__info}>
                 <h2 className={`${styles.employeeCard__name} ${styles[theme]}`}>{fullName}</h2>
                 <p className={styles.employeeCard__position}>{position}</p>

@@ -3,12 +3,12 @@ import HeaderStatus from "./HeaderStatus/HeaderStatus";
 import styles from "./HeaderCard.module.css"
 import {useTheme} from "../../../../Providers/ThemeContext";
 
-const HeaderCard = ({children}) => {
+const HeaderCard = ({status, children}) => {
     const theme = useTheme();
     return (
         <div className={`${styles.HeaderCard} ${styles[theme]}`}>
             <Text>{children}</Text>
-            <HeaderStatus/>
+            <HeaderStatus status={status}/>
         </div>
     )
 }

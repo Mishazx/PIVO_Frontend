@@ -4,11 +4,11 @@
     background-color: gray;
 }
 .status.red {
-    color: red; /* adjust to a specific error color */
+    background-color: red;
 }
 .status.yellow {
-    color: yellow;
+    background-color: yellow;
 }
 .status.green {
-    color: green;
+    background-color: green;
 }

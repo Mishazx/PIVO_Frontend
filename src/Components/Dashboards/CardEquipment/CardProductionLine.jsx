@@ -6,11 +6,12 @@ import styles from "./CardProductionLine.css"
 import ProgressBar from "../../Common/ProgressBar/ProgressBar";
 
 const CardProductionLine = (props) => {
+    const status = props.status;
 
     return (
         <Container>
             <div className={styles.header}>
-                <HeaderCard>{props.production_line__name}</HeaderCard>
+                <HeaderCard status={status}>{props.production_line__name}</HeaderCard>
             </div>
 
             <div className={styles.stats}>

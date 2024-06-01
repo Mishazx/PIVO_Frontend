@@ -2,9 +2,8 @@ import {useTheme} from "../../../Providers/ThemeContext";
 import styles from "./ContentContainer.module.css"
 
 const ContentContainer = ({children}) => {
-  const theme = useTheme();
   return(
-    <div className={`${styles.Container} ${styles[theme]}`}>
+    <div className={`${styles.Container}`}>
       {children}
     </div>
   );

@@ -1,6 +1,6 @@
 import styles from './JournalLog.module.css'
 import {useTheme} from "../../../Providers/ThemeContext";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 
 
@@ -34,12 +34,48 @@ import {useState} from "react";
 //     )
 // }
 
+
+
+
+const ItemsPerPageDropdown = () => {
+    const [itemsPerPageOptions, setItemsPerPageOptions] = useState([10, 25, 50]);
+    const [selectedOption, setSelectedOption] = useState(10);
+    const [isOpen, setIsOpen] = useState(false);
+
+    const handleSelectChange = (option) => {
+        setSelectedOption(option);
+    };
+
+    const handleToggleDropdown = () => {
+        setIsOpen(!isOpen);
+    };
+
+    return (
+        <div
+            className={styles.dropdown}
+            onClick={handleToggleDropdown}
+        >
+            {selectedOption} <span className="caret">▼</span>
+            <ul className={`${styles.num} ${isOpen ? styles.num['open'] : 'close'}`}>
+                {isOpen && itemsPerPageOptions.map((option, index) => (
+                    <li onClick={() => handleSelectChange(option)} key={index}>{option}</li>
+                ))}
+            </ul>
+        </div>
+    );
+};
+
 const JournalLog = ({ data }) => {
     const theme = useTheme();
     const [currentPage, setCurrentPage] = useState(1);
-    const itemsPerPage = 10;
+    const [itemsPerPage, setItemsPerPage] = useState(10); // initial value
+    const availableItemsPerPageOptions = [10, 25, 50]; // define it here
+    // const itemsPerPage = 10;
     const onPageChange = (page) => {
         setCurrentPage(page);
+    };
+    const onItemsPerPageChange = (newItemsPerPage) => {
+        setItemsPerPage(newItemsPerPage);
     };
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -75,7 +111,7 @@ const JournalLog = ({ data }) => {
                             onClick={() => onPageChange(i + 1)}
                             // className={i + 1 === currentPage? `${styles.active}` : `${styles.passive}`}
                             className={` ${styles.pageNum}
-                            ${i + 1 === currentPage? styles.active : styles.passive} 
+                            ${i + 1 === currentPage ? styles.active : styles.passive} 
                             ${styles[theme]}
                             `}
                         >
@@ -83,7 +119,16 @@ const JournalLog = ({ data }) => {
                         </div>
 
                     ))}
+                <div className={styles.containerDropdown}>
+                    {/*<ItemsPerPageDropdown*/}
+                    {/*    availableItemsPerPageOptions={availableItemsPerPageOptions}*/}
+                    {/*    itemsPerPage={itemsPerPage}*/}
+                    {/*    onItemsPerPageChange={onItemsPerPageChange}*/}
+                    {/*/>*/}
+                </div>
+
             </div>
+
         </div>
     );
 };
