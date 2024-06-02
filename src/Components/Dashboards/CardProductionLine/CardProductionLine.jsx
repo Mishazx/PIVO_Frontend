@@ -1,5 +1,4 @@
 import Container from "../../Common/Container/Container";
-import Text from "../../Common/Text/Text";
 import HeaderCard from "./HeaderCard/HeaderCard";
 import DataLabel from "./DataLabel/DataLabel";
 import styles from "./CardProductionLine.css"

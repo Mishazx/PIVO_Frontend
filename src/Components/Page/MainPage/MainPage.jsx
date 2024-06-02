@@ -1,19 +1,12 @@
 import React, { PureComponent, useEffect } from "react";
 import {
-    CartesianGrid,
-    Legend,
-    Line,
-    LineChart,
     Pie,
     PieChart,
     ResponsiveContainer,
     Tooltip,
-    XAxis,
-    YAxis
 } from "recharts";
 import ContentContainer from "../../Common/ContentContainer/ContentContainer";
 import StoragePieDiagram from "../../Dashboards/StoragePieDiagram/StoragePieDiagram";
-import Container from "../../Common/Container/Container";
 import LineDiagram from "../../Dashboards/LineDiagram/LineDiagram";
 import { compose } from "redux";
 import { connect } from "react-redux";
@@ -22,9 +15,8 @@ import {
     getAllData,
     getCharacteristicData,
     getIsFetching,
-    getStorageData
 } from "../../../Providers/Reducers/ProductionSelector";
-import CardProductionLine from "../../Dashboards/CardEquipment/CardProductionLine";
+import CardProductionLine from "../../Dashboards/CardProductionLine/CardProductionLine";
 import Preloader from "../../Common/Preloader/Preloader";
 
 const data = [
@@ -105,7 +97,7 @@ const MainPage = (props) => {
         props.getAllData();
     }, []);
 
-    console.log('props', props);
+    // console.log('props', props);
 
     return (
         <ContentContainer>

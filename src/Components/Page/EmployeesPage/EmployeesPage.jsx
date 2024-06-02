@@ -6,7 +6,7 @@ import { compose } from "redux";
 import { connect } from "react-redux";
 import { getEmployees } from "../../../Providers/Reducers/EmployeeSelector";
 
-const EmployeePage = (props) => {
+const EmployeesPage = (props) => {
     useEffect(() => {
         props.getEmployees();
     }, []);
@@ -18,7 +18,7 @@ const EmployeePage = (props) => {
     return (
         <ContentContainer>
             {/* {Object.values(props.employees).map((employee, index) => (
-                <EmployeeCard 
+                <EmployeeCard
                     image={employee.image}
                     fullName={employee.fullName}
                     position={employee.position}
@@ -27,7 +27,7 @@ const EmployeePage = (props) => {
             ))} */}
 
 {props.employees && Object.values(props.employees).map((employee, index) => (
-    <EmployeeCard 
+    <EmployeeCard
         image={employee.photo}
         fullName={employee.full_name}
         position={employee.position}
@@ -56,6 +56,6 @@ export default compose(
         getEmployees: requestEmployees
     })
 )
-    (EmployeePage)
+    (EmployeesPage)
 
-// export default EmployeePage;
+// export default EmployeesPage;

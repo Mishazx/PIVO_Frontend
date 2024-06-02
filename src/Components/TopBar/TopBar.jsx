@@ -15,6 +15,7 @@ const TopBar = () => {
         <div className={`${styles.topBar} ${styles[theme]}`}>
             <div className={`${styles.container}`}>
                 <ButtonBar to="/production">Производство</ButtonBar>
+                <ButtonBar to="/equipment">Оборудование</ButtonBar>
                 <ButtonBar to="/journal">Журналы</ButtonBar>
                 <ButtonBar to="/employee">Сотрудники</ButtonBar>
             </div>

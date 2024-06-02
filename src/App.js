@@ -1,15 +1,15 @@
 import './App.css';
-import Sidebar from './Components/Sidebar/Sidebar'
 import {BrowserRouter, Navigate, Route, Routes} from "react-router-dom";
 import MainPage from "./Components/Page/MainPage/MainPage";
 import JournalPage from "./Components/Page/JournalPage/JournalPage";
 import {useTheme} from "./Providers/ThemeContext";
-import EmployeePage from "./Components/Page/EmployeePage/EmployeePage";
 import {compose} from "redux";
 import {connect} from "react-redux";
 import {initializeApp} from "./Providers/Reducers/AppReducer";
 import {useEffect} from "react";
 import TopBar from "./Components/TopBar/TopBar";
+import EquipmentPage from "./Components/Page/EquipmentPage/EquipmentPage";
+import EmployeesPage from "./Components/Page/EmployeesPage/EmployeesPage";
 
 const ContainerApp = (props) => {
     const theme = useTheme();
@@ -27,11 +27,11 @@ const ContainerApp = (props) => {
                 <TopBar />
                 {/*<Sidebar/>*/}
                 <Routes>
-                    <Route path="/" element={<Navigate to="/home" />} />
-                    <Route path={'/home'} element={<MainPage />} />
+                    <Route path="/" element={<Navigate to="/production" />} />
                     <Route path={'/production'} element={<MainPage />} />
+                    <Route path={'/equipment'} element={<EquipmentPage />} />
                     <Route path={'/journal'} element={<JournalPage />} />
-                    <Route path={'/employee'} element={<EmployeePage />} />
+                    <Route path={'/employee'} element={<EmployeesPage />} />
 
                 </Routes>
 
