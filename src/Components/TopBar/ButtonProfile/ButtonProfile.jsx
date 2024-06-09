@@ -4,10 +4,10 @@ import {useTheme} from "../../../Providers/ThemeContext";
 
 const ButtonProfile = () => {
     const theme = useTheme()
-    const color = theme ? 'white' : 'black';
+    // const color = theme ? 'white' : 'black';
     return(
         <div>
-            <ProfileIcon color={color}/>
+            <ProfileIcon />
         </div>
     )
 }

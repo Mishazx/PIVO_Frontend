@@ -27,6 +27,10 @@ export const API = {
             });
     },
 
+    getEquipments() {
+
+    },
+
     getEmployees() {
         return instance.get('get_employees/')
             .then(response => {

@@ -22,7 +22,7 @@ const TopBar = () => {
             <div className={`${styles.user_container}`}>
                 <ButtonProfile />
                 <ButtonSettings />
-                <SwitchThemeButton/>
+                {/*<SwitchThemeButton/>*/}
                 {/* <Switch */}
             </div>
 
